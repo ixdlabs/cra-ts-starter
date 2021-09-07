@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { loginAction } from '../store/slices/authSlice';
+import { loginAction } from '@store/slices/authSlice';
 
 function Login() {
   const dispatch = useDispatch();

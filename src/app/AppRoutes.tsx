@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, RouteProps } from 'react-router-dom';
-import { RootState } from './store';
-import Login from './pages/Login';
-import Home from './pages/Home';
+import { RootState } from '@store/index';
+import Login from '@pages/Login';
+import Home from '@pages/Home';
 
 const AuthedRoute = (props: RouteProps) => {
   const { isAuth } = useSelector((state: RootState) => state.auth);
