@@ -1,23 +1,30 @@
 import { useSelector } from 'react-redux';
-import { BrowserRouter, Route, RouteProps } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import { RootState } from '@store/index';
 import Login from '@pages/Login';
 import Home from '@pages/Home';
 
-const AuthedRoute = (props: RouteProps) => {
+function AuthedRoute() {
   const { isAuth } = useSelector((state: RootState) => state.auth);
-  return isAuth ? <Route {...props} /> : <Login />;
-};
+
+  return isAuth ? <Outlet /> : <Navigate to="/login" />;
+}
 
 function AppRoutes() {
   return (
     <BrowserRouter>
-      <Route path="/login" exact>
-        <Login />
-      </Route>
-      <AuthedRoute path="/" exact>
-        <Home />
-      </AuthedRoute>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route element={<AuthedRoute />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
