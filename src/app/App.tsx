@@ -1,13 +1,11 @@
 import { Provider } from 'react-redux';
-import store from '@store/index';
-import AppRoutes from '@app/AppRoutes';
+import { store } from '@app/store/index';
+import { AppRoutes } from '@app/AppRoutes';
 
-function App() {
+export function App() {
   return (
     <Provider store={store}>
       <AppRoutes />
     </Provider>
   );
 }
-
-export default App;

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { loginAction } from '@store/slices/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { loginAction } from '@app/store/auth/slice';
 
 function Login() {
   const dispatch = useDispatch();
@@ -25,4 +25,4 @@ function Login() {
   );
 }
 
-export default Login;
+export { Login };
